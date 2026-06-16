@@ -1139,11 +1139,11 @@ const HomeContent = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Enterprise <span className="text-cyan-400">Case Studies</span></h2>
             <p className="text-slate-400 max-w-2xl mx-auto text-lg">Bukti nyata bagaimana kami menyelesaikan masalah kompleks untuk klien korporat.</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors shadow-lg flex flex-col justify-between">
               <div>
                 <span className="text-xs font-bold bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full mb-4 inline-block">Cybersecurity</span>
-                <h3 className="text-2xl font-bold text-white mb-3">Mitigasi Serangan DDoS & Web Defacement</h3>
+                <h3 className="text-xl font-bold text-white mb-3">Mitigasi Serangan DDoS & Web Defacement</h3>
                 <p className="text-slate-400 text-sm mb-6 leading-relaxed">Sebuah platform e-commerce klien mengalami serangan DDoS bertubi-tubi dan percobaan peretasan. Kami melakukan audit menyeluruh, menutup 15 celah kritis, dan mengimplementasikan WAF (Web Application Firewall) level enterprise.</p>
               </div>
               <div className="border-t border-slate-800 pt-4 mt-auto">
@@ -1154,7 +1154,7 @@ const HomeContent = () => {
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors shadow-lg flex flex-col justify-between">
               <div>
                 <span className="text-xs font-bold bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full mb-4 inline-block">IT Consultancy</span>
-                <h3 className="text-2xl font-bold text-white mb-3">Optimasi Arsitektur Cloud (AWS)</h3>
+                <h3 className="text-xl font-bold text-white mb-3">Optimasi Arsitektur Cloud (AWS)</h3>
                 <p className="text-slate-400 text-sm mb-6 leading-relaxed">Klien SaaS menghabiskan lebih dari Rp 15 Juta/bulan untuk biaya server yang tidak efisien. Kami melakukan rekayasa ulang infrastruktur (re-architecture) menggunakan sistem kontainer dan load balancing yang tepat.</p>
               </div>
               <div className="border-t border-slate-800 pt-4 mt-auto">
@@ -1165,22 +1165,44 @@ const HomeContent = () => {
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors shadow-lg flex flex-col justify-between">
               <div>
                 <span className="text-xs font-bold bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full mb-4 inline-block">AI Automation</span>
-                <h3 className="text-2xl font-bold text-white mb-3">Integrasi AI Chatbot & Rekap Data Otomatis</h3>
+                <h3 className="text-xl font-bold text-white mb-3">Integrasi AI Chatbot WhatsApp FAQ</h3>
                 <p className="text-slate-400 text-sm mb-6 leading-relaxed">Perusahaan logistik kewalahan melayani ratusan chat FAQ harian. Kami membangun AI Chatbot pintar (WhatsApp & Web API) yang terintegrasi dengan basis data internal operasional mereka.</p>
               </div>
               <div className="border-t border-slate-800 pt-4 mt-auto">
-                <span className="text-cyan-400 font-bold text-sm">Hasil: Menjawab 85% FAQ otomatis & memotong waktu respon tim CS menjadi di bawah 5 detik.</span>
+                <span className="text-cyan-400 font-bold text-sm">Hasil: Menjawab 85% FAQ otomatis & memotong waktu respon CS di bawah 5 detik.</span>
               </div>
             </motion.div>
 
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors shadow-lg flex flex-col justify-between">
               <div>
                 <span className="text-xs font-bold bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full mb-4 inline-block">Aplikasi (Custom Software)</span>
-                <h3 className="text-2xl font-bold text-white mb-3">Sistem ERP & POS Multi-Cabang Ritel</h3>
+                <h3 className="text-xl font-bold text-white mb-3">Sistem ERP & POS Multi-Cabang Ritel</h3>
                 <p className="text-slate-400 text-sm mb-6 leading-relaxed">Klien dengan 12 cabang retail kesulitan memantau stok real-time dan rekap kas harian. Kami merancang web dashboard ERP & POS custom berbasis SaaS.</p>
               </div>
               <div className="border-t border-slate-800 pt-4 mt-auto">
-                <span className="text-cyan-400 font-bold text-sm">Hasil: Sinkronisasi stok 100% real-time dan menghemat waktu rekap manual hingga 4 jam per hari.</span>
+                <span className="text-cyan-400 font-bold text-sm">Hasil: Sinkronisasi stok 100% real-time dan menghemat waktu rekap 4 jam per hari.</span>
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors shadow-lg flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full mb-4 inline-block">AI Automation / Finansial</span>
+                <h3 className="text-xl font-bold text-white mb-3">Otomatisasi Pipeline Data Laporan</h3>
+                <p className="text-slate-400 text-sm mb-6 leading-relaxed">Perusahaan investasi kesulitan memproses ribuan data laporan keuangan harian secara manual. Kami mengembangkan pipeline otomatisasi berbasis AI untuk ekstraksi informasi kunci.</p>
+              </div>
+              <div className="border-t border-slate-800 pt-4 mt-auto">
+                <span className="text-cyan-400 font-bold text-sm">Hasil: Pemrosesan 95% lebih cepat (dari 24 jam ke 5 menit) dengan akurasi 99%.</span>
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors shadow-lg flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full mb-4 inline-block">Website / E-Commerce</span>
+                <h3 className="text-xl font-bold text-white mb-3">Re-engineering Web Ritel Nasional</h3>
+                <p className="text-slate-400 text-sm mb-6 leading-relaxed">Website e-commerce ritel nasional mengalami kelambatan saat traffic tinggi. Kami merancang ulang web frontend dengan React/Next.js & CDN caching global.</p>
+              </div>
+              <div className="border-t border-slate-800 pt-4 mt-auto">
+                <span className="text-cyan-400 font-bold text-sm">Hasil: Kecepatan load naik 300% & bounce rate turun ke 18%, penjualan naik 35%.</span>
               </div>
             </motion.div>
           </div>
