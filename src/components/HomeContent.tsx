@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Code, CheckCircle, Zap, Shield, Layout, ClipboardCheck, ArrowRight } from 'lucide-react';
+import { Code, CheckCircle, Zap, Shield, Layout, ClipboardCheck, ArrowRight, ShieldAlert, Network } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const HomeContent = () => {
@@ -40,7 +40,9 @@ const HomeContent = () => {
     'Web Toko Online',
     'Optimasi SEO',
     'Optimasi Ads',
-    'Social Media Management'
+    'Social Media Management',
+    'Cybersecurity',
+    'IT Consultancy'
   ];
 
   const pricingData = {
@@ -382,6 +384,94 @@ const HomeContent = () => {
         ],
         isBestSeller: false
       }
+    ],
+    'Cybersecurity': [
+      {
+        name: 'VULNERABILITY SCAN',
+        desc: 'Pemindaian kerentanan otomatis dan laporan dasar celah keamanan.',
+        price: '2.500.000',
+        features: [
+          "Automated Vulnerability Scanning",
+          "Pengecekan Konfigurasi SSL/TLS",
+          "Analisis Header Keamanan",
+          "Laporan Kerentanan Dasar",
+          "Saran Perbaikan Sistem",
+          "Support 1 Minggu"
+        ],
+        isBestSeller: false
+      },
+      {
+        name: 'PENETRATION TESTING',
+        desc: 'Simulasi serangan nyata (ethical hacking) ke dalam sistem.',
+        price: '7.500.000',
+        features: [
+          "Manual & Automated Pen-Testing",
+          "Simulasi Serangan Web & API",
+          "Analisis Logika Bisnis (Business Logic Flaws)",
+          "Laporan Eksekutif & Teknis Detail",
+          "Rekomendasi Perbaikan Menyeluruh",
+          "1x Retest Setelah Perbaikan"
+        ],
+        isBestSeller: true
+      },
+      {
+        name: 'SECURITY MANAGED',
+        desc: 'Perlindungan penuh, pemantauan 24/7, dan respons insiden.',
+        price: '15.000.000',
+        features: [
+          "Pemantauan Keamanan 24/7",
+          "Setup Web Application Firewall (WAF)",
+          "Mitigasi & Proteksi DDoS",
+          "Incident Response Cepat",
+          "Audit Keamanan Bulanan",
+          "Konsultasi Keamanan Kapan Saja"
+        ],
+        isBestSeller: false
+      }
+    ],
+    'IT Consultancy': [
+      {
+        name: 'TECH BLUEPRINT',
+        desc: 'Konsultasi dasar untuk membedah masalah dan merancang roadmap.',
+        price: '3.000.000',
+        features: [
+          "Sesi Konsultasi 3 Jam",
+          "Analisis Masalah Infrastruktur",
+          "Review Arsitektur Saat Ini",
+          "Rekomendasi Tech Stack",
+          "Roadmap Transformasi Digital",
+          "Dokumen Rangkuman Eksekutif"
+        ],
+        isBestSeller: false
+      },
+      {
+        name: 'CLOUD INFRASTRUCTURE',
+        desc: 'Perancangan arsitektur server dan migrasi sistem.',
+        price: '8.500.000',
+        features: [
+          "Desain Arsitektur AWS / GCP / Azure",
+          "Setup Auto-Scaling & Load Balancing",
+          "Optimasi Biaya Server Bulanan",
+          "Implementasi CI/CD Basic",
+          "Migrasi Data Terjadwal",
+          "Dokumentasi Teknis Infrastruktur"
+        ],
+        isBestSeller: true
+      },
+      {
+        name: 'FRACTIONAL CTO',
+        desc: 'Kepemimpinan teknis paruh waktu untuk mengawal tim Anda.',
+        price: '20.000.000',
+        features: [
+          "Bertindak sebagai CTO Paruh Waktu",
+          "Memimpin Tim Developer Internal",
+          "Keputusan Arsitektur Jangka Panjang",
+          "Review Kode & Best Practices",
+          "Mentoring Tim Engineer",
+          "Meeting Strategi Mingguan"
+        ],
+        isBestSeller: false
+      }
     ]
   };
 
@@ -482,6 +572,7 @@ const HomeContent = () => {
                 >
                   <motion.div variants={scaleUp} className="text-center">
                     <motion.div
+                      className="transform-gpu"
                       animate={{ y: [0, -10, 0] }}
                       transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                     >
@@ -491,6 +582,7 @@ const HomeContent = () => {
                   </motion.div>
                   <motion.div variants={scaleUp} className="text-center">
                     <motion.div
+                      className="transform-gpu"
                       animate={{ y: [0, -10, 0] }}
                       transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                     >
@@ -504,9 +596,10 @@ const HomeContent = () => {
             <div className="lg:w-1/2 relative">
               <div className="absolute -inset-4 bg-cyan-500/20 rounded-2xl blur-2xl"></div>
               <img
+                loading="lazy"
                 src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
                 alt="Coding Setup"
-                className="relative rounded-2xl shadow-2xl border border-slate-700/50"
+                className="relative rounded-2xl shadow-2xl border border-slate-700/50 transform-gpu"
               />
             </div>
           </div>
@@ -617,6 +710,16 @@ const HomeContent = () => {
                 title: "Sistem Keamanan & Integrasi",
                 desc: "Pastikan data aman dari hacker dan terhubung otomatis dengan sistem pembayaran atau WhatsApp.",
                 icon: <CheckCircle size={32} />
+              },
+              {
+                title: "Cybersecurity & Proteksi Data",
+                desc: "Melindungi aset digital, mendeteksi celah (Penetration Testing), dan memastikan sistem Anda aman dari serangan siber.",
+                icon: <ShieldAlert size={32} />
+              },
+              {
+                title: "IT Consultancy & Arsitektur",
+                desc: "Panduan strategis untuk membangun infrastruktur cloud, transformasi digital, dan kepemimpinan teknis (Fractional CTO).",
+                icon: <Network size={32} />
               }
             ].map((item, idx) => (
               <motion.div
@@ -769,9 +872,10 @@ const HomeContent = () => {
         className="fixed bottom-4 right-4 z-50 hover:opacity-90 transition-opacity"
       >
         <img
+          loading="lazy"
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
           alt="WhatsApp Chat"
-          className="w-14 h-14"
+          className="w-14 h-14 transform-gpu"
         />
       </a>
     </div>

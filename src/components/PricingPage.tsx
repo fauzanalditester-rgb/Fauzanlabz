@@ -12,7 +12,9 @@ const PricingPage = () => {
     'Web Toko Online',
     'Optimasi SEO',
     'Optimasi Ads',
-    'Socal Media Management'
+    'Social Media Management',
+    'Cybersecurity',
+    'IT Consultancy'
   ];
 
   const defaultPackages = [
@@ -363,7 +365,7 @@ const PricingPage = () => {
         isPopular: true
       }
     ],
-    'Socal Media Management': [
+    'Social Media Management': [
       {
         name: 'Silver',
         price: 'Rp 2.500.000/bln',
@@ -391,6 +393,96 @@ const PricingPage = () => {
         ],
         notes: 'Meningkatkan engagement dan branding.',
         isPopular: true
+      }
+    ],
+    'Cybersecurity': [
+      {
+        name: 'Vulnerability Scan',
+        price: 'Rp 2.500.000',
+        description: 'Pemindaian kerentanan otomatis dan laporan dasar celah keamanan.',
+        features: [
+          'Automated Vulnerability Scanning',
+          'Pengecekan Konfigurasi SSL/TLS',
+          'Analisis Header Keamanan',
+          'Laporan Kerentanan Dasar',
+          'Saran Perbaikan Sistem',
+          'Support 1 Minggu'
+        ],
+        notes: 'Pemindaian kerentanan otomatis dan laporan dasar celah keamanan.'
+      },
+      {
+        name: 'Penetration Testing',
+        price: 'Rp 7.500.000',
+        description: 'Simulasi serangan nyata (ethical hacking) ke dalam sistem.',
+        features: [
+          'Manual & Automated Pen-Testing',
+          'Simulasi Serangan Web & API',
+          'Analisis Logika Bisnis (Business Logic Flaws)',
+          'Laporan Eksekutif & Teknis Detail',
+          'Rekomendasi Perbaikan Menyeluruh',
+          '1x Retest Setelah Perbaikan'
+        ],
+        notes: 'Simulasi serangan nyata (ethical hacking) ke dalam sistem.',
+        isPopular: true
+      },
+      {
+        name: 'Security Managed',
+        price: 'Rp 15.000.000',
+        description: 'Perlindungan penuh, pemantauan 24/7, dan respons insiden.',
+        features: [
+          'Pemantauan Keamanan 24/7',
+          'Setup Web Application Firewall (WAF)',
+          'Mitigasi & Proteksi DDoS',
+          'Incident Response Cepat',
+          'Audit Keamanan Bulanan',
+          'Konsultasi Keamanan Kapan Saja'
+        ],
+        notes: 'Perlindungan penuh, pemantauan 24/7, dan respons insiden.'
+      }
+    ],
+    'IT Consultancy': [
+      {
+        name: 'Tech Blueprint',
+        price: 'Rp 3.000.000',
+        description: 'Konsultasi dasar untuk membedah masalah dan merancang roadmap.',
+        features: [
+          'Sesi Konsultasi 3 Jam',
+          'Analisis Masalah Infrastruktur',
+          'Review Arsitektur Saat Ini',
+          'Rekomendasi Tech Stack',
+          'Roadmap Transformasi Digital',
+          'Dokumen Rangkuman Eksekutif'
+        ],
+        notes: 'Konsultasi dasar untuk membedah masalah dan merancang roadmap.'
+      },
+      {
+        name: 'Cloud Infrastructure',
+        price: 'Rp 8.500.000',
+        description: 'Perancangan arsitektur server dan migrasi sistem.',
+        features: [
+          'Desain Arsitektur AWS / GCP / Azure',
+          'Setup Auto-Scaling & Load Balancing',
+          'Optimasi Biaya Server Bulanan',
+          'Implementasi CI/CD Basic',
+          'Migrasi Data Terjadwal',
+          'Dokumentasi Teknis Infrastruktur'
+        ],
+        notes: 'Perancangan arsitektur server dan migrasi sistem.',
+        isPopular: true
+      },
+      {
+        name: 'Fractional CTO',
+        price: 'Rp 20.000.000',
+        description: 'Kepemimpinan teknis paruh waktu untuk mengawal tim Anda.',
+        features: [
+          'Bertindak sebagai CTO Paruh Waktu',
+          'Memimpin Tim Developer Internal',
+          'Keputusan Arsitektur Jangka Panjang',
+          'Review Kode & Best Practices',
+          'Mentoring Tim Engineer',
+          'Meeting Strategi Mingguan'
+        ],
+        notes: 'Kepemimpinan teknis paruh waktu untuk mengawal tim Anda.'
       }
     ]
   };
@@ -540,9 +632,10 @@ const PricingPage = () => {
                 <div className="relative overflow-hidden h-64">
                   <div className="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
                   <img
+                    loading="lazy"
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover object-top transform transform-gpu group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
                 <div className="p-4 text-center bg-slate-950 border-t border-slate-800">
