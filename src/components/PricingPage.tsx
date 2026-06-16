@@ -508,10 +508,10 @@ const PricingPage = () => {
         description: 'Simulasi serangan nyata (ethical hacking) ke dalam sistem.',
         features: [
           'Manual & Automated Pen-Testing',
-          'Simulasi Serangan Web & API',
+          'Simulasi Serangan Web & API (CWEE Standard)',
+          'AI & ML Model Security Assessment (C-AI/MLPEN)',
           'Analisis Logika Bisnis (Business Logic Flaws)',
           'Laporan Eksekutif & Teknis Detail',
-          'Rekomendasi Perbaikan Menyeluruh',
           '1x Retest Setelah Perbaikan'
         ],
         notes: 'Simulasi serangan nyata (ethical hacking) ke dalam sistem.',
@@ -522,12 +522,12 @@ const PricingPage = () => {
         price: 'Rp 15.000.000',
         description: 'Perlindungan penuh, pemantauan 24/7, dan respons insiden.',
         features: [
-          'Pemantauan Keamanan 24/7',
-          'Setup Web Application Firewall (WAF)',
+          'Active Directory & Network Red Teaming (CRTA)',
+          'Pemantauan Keamanan & Threat Hunting',
+          'Setup Web Application Firewall (WAF) & IPS',
           'Mitigasi & Proteksi DDoS',
-          'Incident Response Cepat',
-          'Audit Keamanan Bulanan',
-          'Konsultasi Keamanan Kapan Saja'
+          'Incident Response & Incident Handling',
+          'Audit Keamanan Bulanan'
         ],
         notes: 'Perlindungan penuh, pemantauan 24/7, dan respons insiden.'
       }
@@ -539,27 +539,27 @@ const PricingPage = () => {
         description: 'Konsultasi dasar untuk membedah masalah dan merancang roadmap.',
         features: [
           'Sesi Konsultasi 3 Jam',
-          'Analisis Masalah Infrastruktur',
+          'Analisis Masalah Infrastruktur & Jaringan',
           'Review Arsitektur Saat Ini',
-          'Rekomendasi Tech Stack',
+          'Rekomendasi Tech Stack & Topologi',
           'Roadmap Transformasi Digital',
           'Dokumen Rangkuman Eksekutif'
         ],
         notes: 'Konsultasi dasar untuk membedah masalah dan merancang roadmap.'
       },
       {
-        name: 'Cloud Infrastructure',
+        name: 'Cloud & Enterprise Network',
         price: 'Rp 8.500.000',
-        description: 'Perancangan arsitektur server dan migrasi sistem.',
+        description: 'Perancangan arsitektur server, routing, dan migrasi sistem.',
         features: [
           'Desain Arsitektur AWS / GCP / Azure',
-          'Setup Auto-Scaling & Load Balancing',
-          'Optimasi Biaya Server Bulanan',
+          'Cisco CCNA & MikroTik Routing Design (MTCRE)',
+          'Setup Auto-Scaling, Load Balancing & VPN Tunnel',
+          'Optimasi Biaya Server & Bandwidth Jaringan',
           'Implementasi CI/CD Basic',
-          'Migrasi Data Terjadwal',
           'Dokumentasi Teknis Infrastruktur'
         ],
-        notes: 'Perancangan arsitektur server dan migrasi sistem.',
+        notes: 'Perancangan arsitektur server, routing, dan migrasi sistem.',
         isPopular: true
       },
       {
