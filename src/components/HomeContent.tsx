@@ -521,6 +521,20 @@ const HomeContent = () => {
         </div>
       </section>
 
+      {/* Tech Stack Partner */}
+      <section className="py-8 bg-slate-950 border-b border-slate-900">
+        <div className="container mx-auto px-6">
+          <p className="text-center text-slate-500 text-xs tracking-widest uppercase mb-6 font-bold">Teknologi & Keamanan Kelas Dunia yang Kami Gunakan</p>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 hover:opacity-100 transition-all duration-500">
+            {['AWS', 'Google Cloud', 'Cloudflare', 'React', 'Node.js', 'OWASP'].map((tech, i) => (
+              <span key={i} className="text-xl md:text-2xl font-black text-slate-400 tracking-wider">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
       <section className="py-20 bg-slate-900">
         <div className="container mx-auto px-6">
@@ -645,6 +659,16 @@ const HomeContent = () => {
                 title: "Full Support",
                 desc: "Butuh revisi atau ada kendala? Kami siap bantu bahkan setelah aplikasi live.",
                 icon: <Zap size={32} />
+              },
+              {
+                title: "Keamanan Data & NDA",
+                desc: "Privasi dan kerahasiaan data bisnis Anda dijamin melalui Non-Disclosure Agreement (NDA).",
+                icon: <ShieldAlert size={32} />
+              },
+              {
+                title: "99.9% Server Uptime",
+                desc: "Jaminan infrastruktur server yang handal dan selalu online untuk operasional perusahaan Anda.",
+                icon: <Network size={32} />
               }
             ].map((item, idx) => (
               <motion.div
@@ -828,6 +852,35 @@ const HomeContent = () => {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* Enterprise Case Studies */}
+      <section className="py-24 bg-slate-950 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_50%_-200px,#3b82f61a,transparent)]"></div>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Enterprise <span className="text-cyan-400">Case Studies</span></h2>
+            <p className="text-slate-400 max-w-2xl mx-auto text-lg">Bukti nyata bagaimana kami menyelesaikan masalah kompleks untuk klien korporat.</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors shadow-lg">
+              <span className="text-xs font-bold bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full mb-4 inline-block">Cybersecurity</span>
+              <h3 className="text-2xl font-bold text-white mb-3">Mitigasi Serangan DDoS & Web Defacement</h3>
+              <p className="text-slate-400 text-sm mb-6 leading-relaxed">Sebuah platform e-commerce klien mengalami serangan DDoS bertubi-tubi dan percobaan peretasan. Kami melakukan audit menyeluruh, menutup 15 celah kritis, dan mengimplementasikan WAF (Web Application Firewall) level enterprise.</p>
+              <div className="border-t border-slate-800 pt-4 mt-auto">
+                <span className="text-cyan-400 font-bold text-sm">Hasil: 100% Uptime selama serangan & nol kebocoran data.</span>
+              </div>
+            </motion.div>
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors shadow-lg">
+              <span className="text-xs font-bold bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full mb-4 inline-block">IT Consultancy</span>
+              <h3 className="text-2xl font-bold text-white mb-3">Optimasi Arsitektur Cloud (AWS)</h3>
+              <p className="text-slate-400 text-sm mb-6 leading-relaxed">Klien SaaS menghabiskan lebih dari Rp 15 Juta/bulan untuk biaya server yang tidak efisien. Kami melakukan rekayasa ulang infrastruktur (re-architecture) menggunakan sistem kontainer dan load balancing yang tepat.</p>
+              <div className="border-t border-slate-800 pt-4 mt-auto">
+                <span className="text-cyan-400 font-bold text-sm">Hasil: Penghematan biaya server hingga 60% dengan performa 2x lebih cepat.</span>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 

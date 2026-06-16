@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -15,4 +17,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default React.memo(Footer);

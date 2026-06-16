@@ -267,7 +267,7 @@ const BizContent = () => {
                         >
                           <div className="relative overflow-hidden h-96 md:h-[600px] rounded-xl border border-slate-800 shadow-lg bg-slate-900 group-hover:border-cyan-500/50 transition-all">
                             <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors z-10"></div>
-                            <img src={item.img} alt={item.title} className="w-full h-full object-cover object-top origin-top transform group-hover:scale-105 transition-transform duration-700" />
+                            <img loading="lazy" src={item.img} alt={item.title} className="w-full h-full object-cover object-top origin-top transform transform-gpu group-hover:scale-105 transition-transform duration-700" />
                           </div>
                           <div className="mt-5 text-center">
                             <h3 className="font-bold text-white text-xl mb-2 group-hover:text-cyan-400 transition-colors">{item.title}</h3>
@@ -314,9 +314,10 @@ const BizContent = () => {
               <div className="relative rounded-2xl overflow-hidden border border-slate-800 shadow-[0_0_50px_rgba(0,0,0,0.5)] aspect-[5/4]">
                 <div className="absolute inset-0 bg-slate-950/20 z-10"></div>
                 <img
+                  loading="lazy"
                   src="/images/foto11.webp"
                   alt="Stressed Business Owner"
-                  className="w-full h-full object-cover scale-125"
+                  className="w-full h-full object-cover scale-125 transform-gpu"
                 />
               </div>
               {/* Decorative Elements */}
@@ -420,9 +421,10 @@ const BizContent = () => {
               <div className="relative rounded-2xl overflow-hidden border border-slate-800 shadow-[0_0_50px_rgba(6,182,212,0.15)] group aspect-[5/4]">
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60 z-10"></div>
                 <img
+                  loading="lazy"
                   src="/images/foto12.webp"
                   alt="Professional Web Developer"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transform-gpu"
                 />
               </div>
               {/* Decorative Elements */}

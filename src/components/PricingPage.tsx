@@ -494,7 +494,9 @@ const PricingPage = () => {
     { title: "Website Travel Tour", image: "https://fauzanlabz.my.id/wp-content/uploads/2025/08/Website-Travel-Tour-scaled.webp", category: "Travel" },
     { title: "Landing Page Toko Online", image: "https://fauzanlabz.my.id/wp-content/uploads/2025/08/Landing-Page-Toko-Online-scaled.webp", category: "E-Commerce" },
     { title: "Website Toko Online", image: "https://fauzanlabz.my.id/wp-content/uploads/2025/08/Website-Toko-Online-scaled.webp", category: "E-Commerce" },
-    { title: "Toko Online + Payment Gateway", image: "/images/tokoonline2.png", category: "E-Commerce" }
+    { title: "Toko Online + Payment Gateway", image: "/images/tokoonline2.png", category: "E-Commerce" },
+    { title: "Security Analytics Dashboard", image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070", category: "Cybersecurity" },
+    { title: "Cloud Architecture Diagram", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2072", category: "IT Consultancy" }
   ];
 
   const advantages = [
