@@ -521,19 +521,7 @@ const HomeContent = () => {
         </div>
       </section>
 
-      {/* Tech Stack Partner */}
-      <section className="py-8 bg-slate-950 border-b border-slate-900">
-        <div className="container mx-auto px-6">
-          <p className="text-center text-slate-500 text-xs tracking-widest uppercase mb-6 font-bold">Teknologi & Keamanan Kelas Dunia yang Kami Gunakan</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 hover:opacity-100 transition-all duration-500">
-            {['AWS', 'Google Cloud', 'Cloudflare', 'React', 'Node.js', 'OWASP'].map((tech, i) => (
-              <span key={i} className="text-xl md:text-2xl font-black text-slate-400 tracking-wider">
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* About Section */}
       <section className="py-20 bg-slate-900">
