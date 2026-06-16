@@ -1,9 +1,12 @@
 import { useState } from 'react';
-import { Check, Phone, X, Menu, Star, Edit, CheckCircle, PenTool, Handshake, ShoppingCart } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Check, Phone, X, Menu, Star, Edit, CheckCircle, PenTool, Handshake, ShoppingCart, Shield } from 'lucide-react';
 
 const PricingPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('Landing Page');
+  const [isProposalModalOpen, setIsProposalModalOpen] = useState(false);
+  const [proposalDetails, setProposalDetails] = useState({ name: '', category: '' });
 
   const tabs = [
     'Aplikasi',
@@ -154,7 +157,8 @@ const PricingPage = () => {
           'Laporan Riwayat Chat',
           'Bebas Biaya Bulanan (Kecuali API)'
         ],
-        notes: 'Bot pintar 24/7 yang bisa menjawab pertanyaan layaknya manusia.'
+        notes: 'Bot pintar 24/7 yang bisa menjawab pertanyaan layaknya manusia.',
+        techStack: ['OpenAI API', 'WhatsApp API', 'LangChain', 'Python']
       },
       {
         name: 'Workflow AI',
@@ -169,7 +173,8 @@ const PricingPage = () => {
           'Dokumentasi Penggunaan'
         ],
         notes: 'Otomatisasi pekerjaan berulang seperti rekap data & balas email.',
-        isPopular: true
+        isPopular: true,
+        techStack: ['Zapier', 'Make.com', 'Python', 'OpenAI', 'Google API']
       },
       {
         name: 'Custom AI Agent',
@@ -183,7 +188,8 @@ const PricingPage = () => {
           'Keamanan Data Terjamin',
           'Maintenance Model AI'
         ],
-        notes: 'Asisten AI cerdas khusus (Private LLM) untuk analisa data internal.'
+        notes: 'Asisten AI cerdas khusus (Private LLM) untuk analisa data internal.',
+        techStack: ['LangChain', 'LlamaIndex', 'Python', 'Vector DB', 'Ollama']
       }
     ],
     'Landing Page': [
@@ -805,22 +811,52 @@ const PricingPage = () => {
                   ))}
                 </div>
 
-                <div className="bg-slate-950/50 rounded-lg p-4 mb-6 border border-slate-800">
+                {/* Render Tech Stack Badges */}
+                {pkg.techStack && (
+                  <div className="mt-4 pt-4 border-t border-slate-800/80 mb-6">
+                    <span className="text-[10px] font-mono text-slate-500 block mb-2">TECH STACK:</span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {pkg.techStack.map((tech, i) => (
+                        <span key={i} className="text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-bold font-mono">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div className="bg-slate-950/50 rounded-lg p-4 mb-6 border border-slate-800 mt-auto">
                   <p className="text-xs text-slate-400 italic">
                     <span className="font-semibold text-cyan-400 not-italic">Note:</span> {pkg.notes}
                   </p>
                 </div>
 
-                <a
-                  href={`https://wa.me/6285363407399?text=Halo%20kak!%20Saya%20tertarik%20dengan%20paket%20${pkg.name}%20untuk%20${activeTab}`}
-                  className={`block text-center font-bold py-4 rounded-full transition transform hover:scale-105 flex items-center justify-center gap-2 ${pkg.popular
-                    ? 'bg-cyan-500 text-slate-950 hover:bg-cyan-400 shadow-lg shadow-cyan-500/25'
-                    : 'bg-transparent border border-cyan-500/50 text-cyan-400 hover:bg-cyan-950 hover:border-cyan-400'
-                    }`}
-                >
-                  <ShoppingCart size={18} />
-                  Order Sekarang
-                </a>
+                {(activeTab === 'Cybersecurity' || activeTab === 'IT Consultancy') ? (
+                  <button
+                    onClick={() => {
+                      setProposalDetails({ name: pkg.name, category: activeTab });
+                      setIsProposalModalOpen(true);
+                    }}
+                    className={`block text-center w-full font-bold py-4 rounded-full transition transform hover:scale-105 flex items-center justify-center gap-2 cursor-pointer ${pkg.popular || (pkg as any).isPopular
+                      ? 'bg-cyan-500 text-slate-950 hover:bg-cyan-400 shadow-lg shadow-cyan-500/25'
+                      : 'bg-transparent border border-cyan-500/50 text-cyan-400 hover:bg-cyan-950 hover:border-cyan-400'
+                      }`}
+                  >
+                    <Shield size={18} />
+                    Minta Proposal & NDA
+                  </button>
+                ) : (
+                  <a
+                    href={`https://wa.me/6285363407399?text=Halo%20kak!%20Saya%20tertarik%20dengan%20paket%20${pkg.name}%20untuk%20${activeTab}`}
+                    className={`block text-center font-bold py-4 rounded-full transition transform hover:scale-105 flex items-center justify-center gap-2 ${pkg.popular || (pkg as any).isPopular
+                      ? 'bg-cyan-500 text-slate-950 hover:bg-cyan-400 shadow-lg shadow-cyan-500/25'
+                      : 'bg-transparent border border-cyan-500/50 text-cyan-400 hover:bg-cyan-950 hover:border-cyan-400'
+                      }`}
+                  >
+                    <ShoppingCart size={18} />
+                    Order Sekarang
+                  </a>
+                )}
               </div>
             ))}
           </div>
@@ -905,6 +941,65 @@ const PricingPage = () => {
       >
         <Phone size={30} fill="currentColor" />
       </a>
+
+      {/* Request Proposal B2B Modal */}
+      {isProposalModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="relative bg-slate-900/90 border border-slate-800 p-8 rounded-2xl max-w-md w-full shadow-2xl backdrop-blur-xl"
+          >
+            <button 
+              onClick={() => setIsProposalModalOpen(false)}
+              className="absolute top-4 right-4 text-slate-400 hover:text-white transition cursor-pointer"
+            >
+              <X size={20} />
+            </button>
+
+            <h3 className="text-xl font-bold text-white mb-2 font-mono flex items-center gap-2">
+              <Shield className="text-cyan-400 w-5 h-5" /> Request Audit Proposal
+            </h3>
+            <p className="text-xs text-slate-400 mb-6 leading-relaxed">
+              Silakan lengkapi formulir di bawah ini. Kami akan menyiapkan dokumen proposal formal dan draft NDA (Non-Disclosure Agreement) dalam waktu 24 jam.
+            </p>
+
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const company = formData.get('company') as string;
+              const name = formData.get('name') as string;
+              const email = formData.get('email') as string;
+              const notes = formData.get('notes') as string;
+
+              const textMessage = `Halo kak! Saya mengajukan request proposal formal untuk:\n\n*Jasa:* ${proposalDetails.category} (${proposalDetails.name})\n*Perusahaan:* ${company}\n*Nama Kontak:* ${name}\n*Email Kerja:* ${email}\n*Kebutuhan Tambahan:* ${notes}`;
+              
+              window.open(`https://wa.me/6285363407399?text=${encodeURIComponent(textMessage)}`, '_blank');
+              setIsProposalModalOpen(false);
+            }} className="space-y-4">
+              <div>
+                <label className="block text-[11px] font-mono text-slate-400 uppercase mb-1.5">Nama Perusahaan</label>
+                <input required type="text" name="company" placeholder="PT. Contoh Indonesia" className="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-white text-sm focus:border-cyan-500 outline-none transition" />
+              </div>
+              <div>
+                <label className="block text-[11px] font-mono text-slate-400 uppercase mb-1.5">Nama Kontak Anda</label>
+                <input required type="text" name="name" placeholder="John Doe" className="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-white text-sm focus:border-cyan-500 outline-none transition" />
+              </div>
+              <div>
+                <label className="block text-[11px] font-mono text-slate-400 uppercase mb-1.5">Email Kerja (Work Email)</label>
+                <input required type="email" name="email" placeholder="john@company.com" className="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-white text-sm focus:border-cyan-500 outline-none transition" />
+              </div>
+              <div>
+                <label className="block text-[11px] font-mono text-slate-400 uppercase mb-1.5">Kebutuhan / Catatan Tambahan (Opsional)</label>
+                <textarea name="notes" placeholder="Misal: Perlu scope web application pentesting saja..." rows={3} className="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-white text-sm focus:border-cyan-500 outline-none transition resize-none"></textarea>
+              </div>
+              <button type="submit" className="w-full py-3 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold transition text-sm cursor-pointer shadow-lg shadow-cyan-500/20">
+                Kirim Request Proposal via WhatsApp
+              </button>
+            </form>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 };

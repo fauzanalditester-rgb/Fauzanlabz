@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Code, CheckCircle, Zap, Shield, Layout, ClipboardCheck, ArrowRight, ShieldAlert, Network, Github } from 'lucide-react';
+import { Code, CheckCircle, Zap, Shield, Layout, ClipboardCheck, ArrowRight, ShieldAlert, Network, Github, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const HomeContent = () => {
@@ -33,6 +33,55 @@ const HomeContent = () => {
 
   const [activeTab, setActiveTab] = useState('Landing Page');
   const [certSlide, setCertSlide] = useState(0);
+  const [isProposalModalOpen, setIsProposalModalOpen] = useState(false);
+  const [proposalDetails, setProposalDetails] = useState({ name: '', category: '' });
+  const [terminalLogs, setTerminalLogs] = useState<string[]>([]);
+  
+  useEffect(() => {
+    const logsSequence = [
+      "fauzan-aldi@nasa-audit:~# nmap -sV -T4 -F target-corp.com",
+      "Starting Nmap 7.92 ( https://nmap.org ) at 2026-06-16...",
+      "Nmap scan report for target-corp.com (104.244.42.1)",
+      "Host is up (0.012s latency).",
+      "PORT    STATE SERVICE     VERSION",
+      "80/tcp  open  http        nginx/1.21.6",
+      "443/tcp open  ssl/https   nginx/1.21.6",
+      "fauzan-aldi@nasa-audit:~# nikto -h https://target-corp.com",
+      "- Nikto v2.1.6/2.1.5",
+      "+ Target Web Server: nginx/1.21.6",
+      "+ The anti-clickjacking X-Frame-Options header is not present.",
+      "+ The X-XSS-Protection header is not defined.",
+      "fauzan-aldi@nasa-audit:~# python3 ai_audit.py --target api.target-corp.com/v1/predict",
+      "[+] Initializing AI/ML Security Assessment (C-AI/MLPEN Standard)...",
+      "[+] Testing model vulnerability to Prompt Injection attacks...",
+      "[!] SUCCESS: Input validation bypass achieved on LLM router.",
+      "[+] Testing data poisoning vector: negative feedback loop...",
+      "[+] Analysis complete. Recommendation: Apply input filtering sanitization.",
+      "fauzan-aldi@nasa-audit:~# ./redteam_sim --domain target-corp.local --scenario active_directory",
+      "[+] Running Red Team simulation (CRTA Standard)...",
+      "[+] Testing Kerberoasting vulnerability on Domain Controller...",
+      "[+] Extracting service principal name ticket hashes...",
+      "[+] Active Directory security posture: 3 minor issues, 0 critical exploits.",
+      "fauzan-aldi@nasa-audit:~# echo 'SYSTEM AUDIT COMPLETED. FAUZANLABZ SECURED.'"
+    ];
+
+    let currentIdx = 0;
+    setTerminalLogs([logsSequence[0]]);
+
+    const interval = setInterval(() => {
+      currentIdx = (currentIdx + 1) % logsSequence.length;
+      if (currentIdx === 0) {
+        setTerminalLogs([logsSequence[0]]);
+      } else {
+        setTerminalLogs(prev => {
+          const updated = [...prev, logsSequence[currentIdx]];
+          return updated.slice(-8); // Keep last 8 logs
+        });
+      }
+    }, 1200);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const pricingCategories = [
     'Aplikasi',
@@ -106,7 +155,8 @@ const HomeContent = () => {
           "Laporan Riwayat Chat",
           "Bebas Biaya Bulanan (Kecuali API)"
         ],
-        isBestSeller: false
+        isBestSeller: false,
+        techStack: ['OpenAI API', 'WhatsApp API', 'LangChain', 'Python']
       },
       {
         name: 'WORKFLOW AI',
@@ -120,7 +170,8 @@ const HomeContent = () => {
           "Testing Skenario Workflow",
           "Dokumentasi Penggunaan"
         ],
-        isBestSeller: true
+        isBestSeller: true,
+        techStack: ['Zapier', 'Make.com', 'Python', 'OpenAI', 'Google API']
       },
       {
         name: 'CUSTOM AI AGENT',
@@ -134,7 +185,8 @@ const HomeContent = () => {
           "Keamanan Data Terjamin",
           "Maintenance Model AI"
         ],
-        isBestSeller: false
+        isBestSeller: false,
+        techStack: ['LangChain', 'LlamaIndex', 'Python', 'Vector DB', 'Ollama']
       }
     ],
     'Landing Page': [
@@ -701,6 +753,45 @@ const HomeContent = () => {
         </div>
       </section>
 
+      {/* Cyber Security Terminal Section */}
+      <section className="py-16 bg-slate-950 border-t border-slate-900 relative overflow-hidden">
+        <div className="container mx-auto px-6 max-w-4xl relative z-10">
+          <div className="bg-black/80 rounded-2xl border border-slate-800 shadow-2xl overflow-hidden font-mono text-xs">
+            {/* Header bar */}
+            <div className="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+              <div className="flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+              </div>
+              <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">FauzanLabz Vulnerability Scanner v1.0.4</span>
+              <span className="text-[10px] text-cyan-400/70">active_sim</span>
+            </div>
+            
+            {/* Terminal Body */}
+            <div className="p-6 space-y-2.5 min-h-[260px] max-h-[300px] overflow-y-auto text-slate-300 leading-relaxed">
+              {terminalLogs.map((log, index) => {
+                const isCommand = log.includes("fauzan-aldi@");
+                const isAlert = log.includes("[!]");
+                const isSuccess = log.includes("[+]");
+                return (
+                  <div 
+                    key={index} 
+                    className={`${
+                      isCommand ? 'text-cyan-400 font-bold' : 
+                      isAlert ? 'text-red-400 font-bold' : 
+                      isSuccess ? 'text-emerald-400' : 'text-slate-400'
+                    }`}
+                  >
+                    {log}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* New Feature: Kredibilitas & Sertifikasi Section */}
       <section className="py-24 bg-slate-950 border-t border-slate-900 relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#080f1e_1px,transparent_1px),linear-gradient(to_bottom,#080f1e_1px,transparent_1px)] bg-[size:30px_30px]"></div>
@@ -807,6 +898,37 @@ const HomeContent = () => {
                 * Kredensial di atas memvalidasi kemampuan kami dalam merancang infrastruktur digital yang aman, cepat, dan tangguh terhadap ancaman siber.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Security Hall of Fame Section */}
+      <section className="py-20 bg-slate-900/30 border-t border-slate-800/60 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:30px_30px]"></div>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-12">
+            <span className="text-xs font-mono text-cyan-400 uppercase tracking-[0.2em] mb-2 block">// SECURITIES ACKNOWLEDGEMENTS</span>
+            <h3 className="text-2xl md:text-3xl font-bold text-white font-mono">
+              Vulnerability <span className="text-cyan-400">Hall of Fame</span>
+            </h3>
+            <p className="text-slate-400 text-sm max-w-xl mx-auto mt-2">
+              Telah diakui secara resmi dalam berkontribusi mengamankan sistem dan melaporkan celah keamanan kritis pada platform global.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 max-w-4xl mx-auto opacity-70 hover:opacity-100 transition duration-300">
+            {[
+              { name: "NASA HOF", logo: "NASA", desc: "Security Contributor" },
+              { name: "Google", logo: "Google", desc: "VRP Researcher" },
+              { name: "Microsoft", logo: "Microsoft", desc: "Security Finder" },
+              { name: "Cisco Systems", logo: "Cisco", desc: "Security Contributor" },
+              { name: "Yahoo! HOF", logo: "Yahoo!", desc: "Vulnerability Disclosure" }
+            ].map((hof, idx) => (
+              <div key={idx} className="group flex flex-col items-center text-center p-4 bg-slate-950/40 border border-slate-850 rounded-xl min-w-[140px] hover:border-cyan-500/20 hover:bg-slate-950/90 transition duration-300 transform hover:-translate-y-1">
+                <span className="text-lg font-black tracking-wider text-slate-400 group-hover:text-cyan-400 transition font-mono uppercase">{hof.logo}</span>
+                <span className="text-[10px] text-slate-500 group-hover:text-slate-400 font-mono mt-1 transition">{hof.desc}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -1021,7 +1143,7 @@ const HomeContent = () => {
                     <span className="text-4xl font-bold text-white">{pkg.price}</span>
                   </div>
                   <motion.ul
-                    className="space-y-4 mb-8"
+                    className="space-y-4 mb-6"
                     variants={staggerContainer}
                     initial="hidden"
                     whileInView="visible"
@@ -1034,16 +1156,42 @@ const HomeContent = () => {
                       </motion.li>
                     ))}
                   </motion.ul>
+
+                  {/* Render Tech Stack Badges */}
+                  {(pkg as any).techStack && (
+                    <div className="mt-6 pt-4 border-t border-slate-800/80">
+                      <span className="text-[10px] font-mono text-slate-500 block mb-2">TECH STACK:</span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {(pkg as any).techStack.map((tech: string, i: number) => (
+                          <span key={i} className="text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-bold font-mono">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <div className="p-8 pt-0 mt-auto">
-                  <a
-                    href={`https://wa.me/6285363407399?text=Halo%20kak!%20Saya%20tertarik%20dengan%20paket%20${pkg.name}%20untuk%20${activeTab}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`block text-center w-full py-3 px-6 rounded-lg font-bold transition-all text-sm ${pkg.isBestSeller ? 'bg-cyan-500 text-slate-950 hover:bg-cyan-400 shadow-lg shadow-cyan-500/25' : 'border border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-cyan-400 hover:border-cyan-500/50'}`}
-                  >
-                    Order Sekarang
-                  </a>
+                  {(activeTab === 'Cybersecurity' || activeTab === 'IT Consultancy') ? (
+                    <button
+                      onClick={() => {
+                        setProposalDetails({ name: pkg.name, category: activeTab });
+                        setIsProposalModalOpen(true);
+                      }}
+                      className={`block text-center w-full py-3 px-6 rounded-lg font-bold transition-all text-sm cursor-pointer ${pkg.isBestSeller ? 'bg-cyan-500 text-slate-950 hover:bg-cyan-400 shadow-lg shadow-cyan-500/25' : 'border border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-cyan-400 hover:border-cyan-500/50'}`}
+                    >
+                      Minta Proposal & NDA
+                    </button>
+                  ) : (
+                    <a
+                      href={`https://wa.me/6285363407399?text=Halo%20kak!%20Saya%20tertarik%20dengan%20paket%20${pkg.name}%20untuk%20${activeTab}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`block text-center w-full py-3 px-6 rounded-lg font-bold transition-all text-sm ${pkg.isBestSeller ? 'bg-cyan-500 text-slate-950 hover:bg-cyan-400 shadow-lg shadow-cyan-500/25' : 'border border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-cyan-400 hover:border-cyan-500/50'}`}
+                    >
+                      Order Sekarang
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -1127,6 +1275,65 @@ const HomeContent = () => {
           className="w-14 h-14 transform-gpu"
         />
       </a>
+
+      {/* Request Proposal B2B Modal */}
+      {isProposalModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="relative bg-slate-900/90 border border-slate-800 p-8 rounded-2xl max-w-md w-full shadow-2xl backdrop-blur-xl"
+          >
+            <button 
+              onClick={() => setIsProposalModalOpen(false)}
+              className="absolute top-4 right-4 text-slate-400 hover:text-white transition cursor-pointer"
+            >
+              <X size={20} />
+            </button>
+
+            <h3 className="text-xl font-bold text-white mb-2 font-mono flex items-center gap-2">
+              <Shield className="text-cyan-400 w-5 h-5" /> Request Audit Proposal
+            </h3>
+            <p className="text-xs text-slate-400 mb-6 leading-relaxed">
+              Silakan lengkapi formulir di bawah ini. Kami akan menyiapkan dokumen proposal formal dan draft NDA (Non-Disclosure Agreement) dalam waktu 24 jam.
+            </p>
+
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const company = formData.get('company') as string;
+              const name = formData.get('name') as string;
+              const email = formData.get('email') as string;
+              const notes = formData.get('notes') as string;
+
+              const textMessage = `Halo kak! Saya mengajukan request proposal formal untuk:\n\n*Jasa:* ${proposalDetails.category} (${proposalDetails.name})\n*Perusahaan:* ${company}\n*Nama Kontak:* ${name}\n*Email Kerja:* ${email}\n*Kebutuhan Tambahan:* ${notes}`;
+              
+              window.open(`https://wa.me/6285363407399?text=${encodeURIComponent(textMessage)}`, '_blank');
+              setIsProposalModalOpen(false);
+            }} className="space-y-4">
+              <div>
+                <label className="block text-[11px] font-mono text-slate-400 uppercase mb-1.5">Nama Perusahaan</label>
+                <input required type="text" name="company" placeholder="PT. Contoh Indonesia" className="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-white text-sm focus:border-cyan-500 outline-none transition" />
+              </div>
+              <div>
+                <label className="block text-[11px] font-mono text-slate-400 uppercase mb-1.5">Nama Kontak Anda</label>
+                <input required type="text" name="name" placeholder="John Doe" className="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-white text-sm focus:border-cyan-500 outline-none transition" />
+              </div>
+              <div>
+                <label className="block text-[11px] font-mono text-slate-400 uppercase mb-1.5">Email Kerja (Work Email)</label>
+                <input required type="email" name="email" placeholder="john@company.com" className="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-white text-sm focus:border-cyan-500 outline-none transition" />
+              </div>
+              <div>
+                <label className="block text-[11px] font-mono text-slate-400 uppercase mb-1.5">Kebutuhan / Catatan Tambahan (Opsional)</label>
+                <textarea name="notes" placeholder="Misal: Perlu scope web application pentesting saja..." rows={3} className="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-white text-sm focus:border-cyan-500 outline-none transition resize-none"></textarea>
+              </div>
+              <button type="submit" className="w-full py-3 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold transition text-sm cursor-pointer shadow-lg shadow-cyan-500/20">
+                Kirim Request Proposal via WhatsApp
+              </button>
+            </form>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 };
