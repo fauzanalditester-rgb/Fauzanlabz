@@ -753,44 +753,6 @@ const HomeContent = () => {
         </div>
       </section>
 
-      {/* Cyber Security Terminal Section */}
-      <section className="py-16 bg-slate-950 border-t border-slate-900 relative overflow-hidden">
-        <div className="container mx-auto px-6 max-w-4xl relative z-10">
-          <div className="bg-black/80 rounded-2xl border border-slate-800 shadow-2xl overflow-hidden font-mono text-xs">
-            {/* Header bar */}
-            <div className="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-              </div>
-              <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">FauzanLabz Vulnerability Scanner v1.0.4</span>
-              <span className="text-[10px] text-cyan-400/70">active_sim</span>
-            </div>
-            
-            {/* Terminal Body */}
-            <div className="p-6 space-y-2.5 min-h-[260px] max-h-[300px] overflow-y-auto text-slate-300 leading-relaxed">
-              {terminalLogs.map((log, index) => {
-                const isCommand = log.includes("fauzan-aldi@");
-                const isAlert = log.includes("[!]");
-                const isSuccess = log.includes("[+]");
-                return (
-                  <div 
-                    key={index} 
-                    className={`${
-                      isCommand ? 'text-cyan-400 font-bold' : 
-                      isAlert ? 'text-red-400 font-bold' : 
-                      isSuccess ? 'text-emerald-400' : 'text-slate-400'
-                    }`}
-                  >
-                    {log}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* New Feature: Kredibilitas & Sertifikasi Section */}
       <section className="py-24 bg-slate-950 border-t border-slate-900 relative overflow-hidden">
@@ -902,36 +864,6 @@ const HomeContent = () => {
         </div>
       </section>
 
-      {/* Security Hall of Fame Section */}
-      <section className="py-20 bg-slate-900/30 border-t border-slate-800/60 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:30px_30px]"></div>
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center mb-12">
-            <span className="text-xs font-mono text-cyan-400 uppercase tracking-[0.2em] mb-2 block">// SECURITIES ACKNOWLEDGEMENTS</span>
-            <h3 className="text-2xl md:text-3xl font-bold text-white font-mono">
-              Vulnerability <span className="text-cyan-400">Hall of Fame</span>
-            </h3>
-            <p className="text-slate-400 text-sm max-w-xl mx-auto mt-2">
-              Telah diakui secara resmi dalam berkontribusi mengamankan sistem dan melaporkan celah keamanan kritis pada platform global.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 max-w-4xl mx-auto opacity-70 hover:opacity-100 transition duration-300">
-            {[
-              { name: "NASA HOF", logo: "NASA", desc: "Security Contributor" },
-              { name: "Google", logo: "Google", desc: "VRP Researcher" },
-              { name: "Microsoft", logo: "Microsoft", desc: "Security Finder" },
-              { name: "Cisco Systems", logo: "Cisco", desc: "Security Contributor" },
-              { name: "Yahoo! HOF", logo: "Yahoo!", desc: "Vulnerability Disclosure" }
-            ].map((hof, idx) => (
-              <div key={idx} className="group flex flex-col items-center text-center p-4 bg-slate-950/40 border border-slate-850 rounded-xl min-w-[140px] hover:border-cyan-500/20 hover:bg-slate-950/90 transition duration-300 transform hover:-translate-y-1">
-                <span className="text-lg font-black tracking-wider text-slate-400 group-hover:text-cyan-400 transition font-mono uppercase">{hof.logo}</span>
-                <span className="text-[10px] text-slate-500 group-hover:text-slate-400 font-mono mt-1 transition">{hof.desc}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
 
 
