@@ -34,6 +34,9 @@ const HomeContent = () => {
   const [activeTab, setActiveTab] = useState('Landing Page');
 
   const pricingCategories = [
+    'Website',
+    'Aplikasi',
+    'AI Automation',
     'Landing Page',
     'Web Company Profile',
     'Web Travel & Tour',
@@ -46,6 +49,138 @@ const HomeContent = () => {
   ];
 
   const pricingData = {
+    'Website': [
+      {
+        name: 'STARTER WEB',
+        desc: 'Landing page simpel untuk bisnis baru yang ingin tampil online.',
+        price: '1.500.000',
+        features: [
+          "Free Domain (.com)",
+          "Shared Hosting (6 Bulan)",
+          "1 Halaman (Scroll Panjang)",
+          "Desain Mobile Friendly",
+          "Tombol WhatsApp",
+          "1x Revisi"
+        ],
+        isBestSeller: false
+      },
+      {
+        name: 'COMPANY PROFILE',
+        desc: 'Website company profile multi-halaman untuk kredibilitas bisnis.',
+        price: '3.500.000',
+        features: [
+          "Free Domain (.com) & Hosting 1 Tahun",
+          "Hingga 10 Halaman",
+          "Galeri & Portofolio",
+          "Fitur Blog / Berita",
+          "Email Bisnis Professional",
+          "SEO Basic"
+        ],
+        isBestSeller: true
+      },
+      {
+        name: 'E-COMMERCE',
+        desc: 'Toko online lengkap dengan payment gateway & ongkir otomatis.',
+        price: '6.500.000',
+        features: [
+          "Unlimited Produk",
+          "Sistem Keranjang Belanja",
+          "Payment Gateway (OVO, Dana, VA)",
+          "Integrasi Ongkir (RajaOngkir)",
+          "Laporan Penjualan",
+          "Maintenance 2 Bulan"
+        ],
+        isBestSeller: false
+      }
+    ],
+    'Aplikasi': [
+      {
+        name: 'WEB DASHBOARD',
+        desc: 'Sistem internal berbasis web untuk manajemen kasir atau ERP.',
+        price: '8.000.000',
+        features: [
+          "Custom Web Application",
+          "Sistem Role & Multi-User",
+          "Laporan & Export Data (Excel/PDF)",
+          "Desain UI/UX Khusus",
+          "Setup Server & Database",
+          "Garansi Bug 2 Bulan"
+        ],
+        isBestSeller: false
+      },
+      {
+        name: 'MOBILE APP',
+        desc: 'Aplikasi Android & iOS native/hybrid untuk pelanggan Anda.',
+        price: '15.000.000',
+        features: [
+          "Aplikasi Android & iOS",
+          "Upload ke Play Store & App Store",
+          "Notifikasi Push",
+          "Integrasi API Backend",
+          "UI/UX Animasi Halus",
+          "Garansi Bug 3 Bulan"
+        ],
+        isBestSeller: true
+      },
+      {
+        name: 'SAAS PLATFORM',
+        desc: 'Bangun startup digital / SaaS yang dapat diakses ribuan user.',
+        price: '25.000.000',
+        features: [
+          "Arsitektur Skalabilitas Tinggi",
+          "Sistem Langganan (Subscription)",
+          "Multi-Tenant Database",
+          "Integrasi Payment Global",
+          "Advanced Analytics",
+          "Maintenance 6 Bulan"
+        ],
+        isBestSeller: false
+      }
+    ],
+    'AI Automation': [
+      {
+        name: 'AI CHATBOT',
+        desc: 'Bot pintar 24/7 yang bisa menjawab pertanyaan layaknya manusia.',
+        price: '3.500.000',
+        features: [
+          "Integrasi WhatsApp / Website",
+          "Trained dengan Data Bisnis",
+          "Otomatisasi FAQ",
+          "Eskalasi ke Admin Manusia",
+          "Laporan Riwayat Chat",
+          "Bebas Biaya Bulanan (Kecuali API)"
+        ],
+        isBestSeller: false
+      },
+      {
+        name: 'WORKFLOW AI',
+        desc: 'Otomatisasi pekerjaan berulang seperti rekap data & balas email.',
+        price: '6.000.000',
+        features: [
+          "Otomatisasi Zapier / Make",
+          "Koneksi Antar Aplikasi (CRM, Email, Sheets)",
+          "AI Data Extraction",
+          "Penghematan Waktu Operasional",
+          "Testing Skenario Workflow",
+          "Dokumentasi Penggunaan"
+        ],
+        isBestSeller: true
+      },
+      {
+        name: 'CUSTOM AI AGENT',
+        desc: 'Asisten AI cerdas khusus (Private LLM) untuk analisa data internal.',
+        price: '12.000.000',
+        features: [
+          "Custom RAG (Retrieval-Augmented Generation)",
+          "Akses ke Dokumen Internal (PDF/Doc)",
+          "Pembuatan Keputusan Berbasis AI",
+          "Dashboard Interaksi Khusus",
+          "Keamanan Data Terjamin",
+          "Maintenance Model AI"
+        ],
+        isBestSeller: false
+      }
+    ],
     'Landing Page': [
       {
         name: 'STARTER',
@@ -732,6 +867,11 @@ const HomeContent = () => {
                 title: "IT Consultancy & Arsitektur",
                 desc: "Panduan strategis untuk membangun infrastruktur cloud, transformasi digital, dan kepemimpinan teknis (Fractional CTO).",
                 icon: <Network size={32} />
+              },
+              {
+                title: "AI Automation & Chatbot",
+                desc: "Otomatisasi bisnis dengan AI cerdas untuk customer service 24/7, rekap data otomatis, dan agen AI khusus perusahaan Anda.",
+                icon: <Zap size={32} />
               }
             ].map((item, idx) => (
               <motion.div

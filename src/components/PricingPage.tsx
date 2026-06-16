@@ -6,6 +6,9 @@ const PricingPage = () => {
   const [activeTab, setActiveTab] = useState('Landing Page');
 
   const tabs = [
+    'Website',
+    'Aplikasi',
+    'AI Automation',
     'Landing Page',
     'Web Company Profile',
     'Web Travel & Tour',
@@ -94,6 +97,141 @@ const PricingPage = () => {
   }
 
   const pricingData: { [key: string]: PricingPackage[] } = {
+    'Website': [
+      {
+        name: 'Starter Web',
+        price: 'Rp 1.500.000',
+        description: 'Landing page simpel untuk bisnis baru yang ingin tampil online.',
+        features: [
+          'Free Domain (.com)',
+          'Shared Hosting (6 Bulan)',
+          '1 Halaman (Scroll Panjang)',
+          'Desain Mobile Friendly',
+          'Tombol WhatsApp',
+          '1x Revisi'
+        ],
+        notes: 'Landing page simpel untuk bisnis baru yang ingin tampil online.'
+      },
+      {
+        name: 'Company Profile',
+        price: 'Rp 3.500.000',
+        description: 'Website company profile multi-halaman untuk kredibilitas bisnis.',
+        features: [
+          'Free Domain (.com) & Hosting 1 Tahun',
+          'Hingga 10 Halaman',
+          'Galeri & Portofolio',
+          'Fitur Blog / Berita',
+          'Email Bisnis Professional',
+          'SEO Basic'
+        ],
+        notes: 'Website company profile multi-halaman untuk kredibilitas bisnis.',
+        isPopular: true
+      },
+      {
+        name: 'E-Commerce',
+        price: 'Rp 6.500.000',
+        description: 'Toko online lengkap dengan payment gateway & ongkir otomatis.',
+        features: [
+          'Unlimited Produk',
+          'Sistem Keranjang Belanja',
+          'Payment Gateway (OVO, Dana, VA)',
+          'Integrasi Ongkir (RajaOngkir)',
+          'Laporan Penjualan',
+          'Maintenance 2 Bulan'
+        ],
+        notes: 'Toko online lengkap dengan payment gateway & ongkir otomatis.'
+      }
+    ],
+    'Aplikasi': [
+      {
+        name: 'Web Dashboard',
+        price: 'Rp 8.000.000',
+        description: 'Sistem internal berbasis web untuk manajemen kasir atau ERP.',
+        features: [
+          'Custom Web Application',
+          'Sistem Role & Multi-User',
+          'Laporan & Export Data (Excel/PDF)',
+          'Desain UI/UX Khusus',
+          'Setup Server & Database',
+          'Garansi Bug 2 Bulan'
+        ],
+        notes: 'Sistem internal berbasis web untuk manajemen kasir atau ERP.'
+      },
+      {
+        name: 'Mobile App',
+        price: 'Rp 15.000.000',
+        description: 'Aplikasi Android & iOS native/hybrid untuk pelanggan Anda.',
+        features: [
+          'Aplikasi Android & iOS',
+          'Upload ke Play Store & App Store',
+          'Notifikasi Push',
+          'Integrasi API Backend',
+          'UI/UX Animasi Halus',
+          'Garansi Bug 3 Bulan'
+        ],
+        notes: 'Aplikasi Android & iOS native/hybrid untuk pelanggan Anda.',
+        isPopular: true
+      },
+      {
+        name: 'SaaS Platform',
+        price: 'Rp 25.000.000',
+        description: 'Bangun startup digital / SaaS yang dapat diakses ribuan user.',
+        features: [
+          'Arsitektur Skalabilitas Tinggi',
+          'Sistem Langganan (Subscription)',
+          'Multi-Tenant Database',
+          'Integrasi Payment Global',
+          'Advanced Analytics',
+          'Maintenance 6 Bulan'
+        ],
+        notes: 'Bangun startup digital / SaaS yang dapat diakses ribuan user.'
+      }
+    ],
+    'AI Automation': [
+      {
+        name: 'AI Chatbot',
+        price: 'Rp 3.500.000',
+        description: 'Bot pintar 24/7 yang bisa menjawab pertanyaan layaknya manusia.',
+        features: [
+          'Integrasi WhatsApp / Website',
+          'Trained dengan Data Bisnis',
+          'Otomatisasi FAQ',
+          'Eskalasi ke Admin Manusia',
+          'Laporan Riwayat Chat',
+          'Bebas Biaya Bulanan (Kecuali API)'
+        ],
+        notes: 'Bot pintar 24/7 yang bisa menjawab pertanyaan layaknya manusia.'
+      },
+      {
+        name: 'Workflow AI',
+        price: 'Rp 6.000.000',
+        description: 'Otomatisasi pekerjaan berulang seperti rekap data & balas email.',
+        features: [
+          'Otomatisasi Zapier / Make',
+          'Koneksi Antar Aplikasi (CRM, Email, Sheets)',
+          'AI Data Extraction',
+          'Penghematan Waktu Operasional',
+          'Testing Skenario Workflow',
+          'Dokumentasi Penggunaan'
+        ],
+        notes: 'Otomatisasi pekerjaan berulang seperti rekap data & balas email.',
+        isPopular: true
+      },
+      {
+        name: 'Custom AI Agent',
+        price: 'Rp 12.000.000',
+        description: 'Asisten AI cerdas khusus (Private LLM) untuk analisa data internal.',
+        features: [
+          'Custom RAG (Retrieval-Augmented Generation)',
+          'Akses ke Dokumen Internal (PDF/Doc)',
+          'Pembuatan Keputusan Berbasis AI',
+          'Dashboard Interaksi Khusus',
+          'Keamanan Data Terjamin',
+          'Maintenance Model AI'
+        ],
+        notes: 'Asisten AI cerdas khusus (Private LLM) untuk analisa data internal.'
+      }
+    ],
     'Landing Page': [
       {
         name: 'Starter',
