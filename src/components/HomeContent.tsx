@@ -1140,20 +1140,47 @@ const HomeContent = () => {
             <p className="text-slate-400 max-w-2xl mx-auto text-lg">Bukti nyata bagaimana kami menyelesaikan masalah kompleks untuk klien korporat.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors shadow-lg">
-              <span className="text-xs font-bold bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full mb-4 inline-block">Cybersecurity</span>
-              <h3 className="text-2xl font-bold text-white mb-3">Mitigasi Serangan DDoS & Web Defacement</h3>
-              <p className="text-slate-400 text-sm mb-6 leading-relaxed">Sebuah platform e-commerce klien mengalami serangan DDoS bertubi-tubi dan percobaan peretasan. Kami melakukan audit menyeluruh, menutup 15 celah kritis, dan mengimplementasikan WAF (Web Application Firewall) level enterprise.</p>
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors shadow-lg flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full mb-4 inline-block">Cybersecurity</span>
+                <h3 className="text-2xl font-bold text-white mb-3">Mitigasi Serangan DDoS & Web Defacement</h3>
+                <p className="text-slate-400 text-sm mb-6 leading-relaxed">Sebuah platform e-commerce klien mengalami serangan DDoS bertubi-tubi dan percobaan peretasan. Kami melakukan audit menyeluruh, menutup 15 celah kritis, dan mengimplementasikan WAF (Web Application Firewall) level enterprise.</p>
+              </div>
               <div className="border-t border-slate-800 pt-4 mt-auto">
                 <span className="text-cyan-400 font-bold text-sm">Hasil: 100% Uptime selama serangan & nol kebocoran data.</span>
               </div>
             </motion.div>
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors shadow-lg">
-              <span className="text-xs font-bold bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full mb-4 inline-block">IT Consultancy</span>
-              <h3 className="text-2xl font-bold text-white mb-3">Optimasi Arsitektur Cloud (AWS)</h3>
-              <p className="text-slate-400 text-sm mb-6 leading-relaxed">Klien SaaS menghabiskan lebih dari Rp 15 Juta/bulan untuk biaya server yang tidak efisien. Kami melakukan rekayasa ulang infrastruktur (re-architecture) menggunakan sistem kontainer dan load balancing yang tepat.</p>
+
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors shadow-lg flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full mb-4 inline-block">IT Consultancy</span>
+                <h3 className="text-2xl font-bold text-white mb-3">Optimasi Arsitektur Cloud (AWS)</h3>
+                <p className="text-slate-400 text-sm mb-6 leading-relaxed">Klien SaaS menghabiskan lebih dari Rp 15 Juta/bulan untuk biaya server yang tidak efisien. Kami melakukan rekayasa ulang infrastruktur (re-architecture) menggunakan sistem kontainer dan load balancing yang tepat.</p>
+              </div>
               <div className="border-t border-slate-800 pt-4 mt-auto">
                 <span className="text-cyan-400 font-bold text-sm">Hasil: Penghematan biaya server hingga 60% dengan performa 2x lebih cepat.</span>
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors shadow-lg flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full mb-4 inline-block">AI Automation</span>
+                <h3 className="text-2xl font-bold text-white mb-3">Integrasi AI Chatbot & Rekap Data Otomatis</h3>
+                <p className="text-slate-400 text-sm mb-6 leading-relaxed">Perusahaan logistik kewalahan melayani ratusan chat FAQ harian. Kami membangun AI Chatbot pintar (WhatsApp & Web API) yang terintegrasi dengan basis data internal operasional mereka.</p>
+              </div>
+              <div className="border-t border-slate-800 pt-4 mt-auto">
+                <span className="text-cyan-400 font-bold text-sm">Hasil: Menjawab 85% FAQ otomatis & memotong waktu respon tim CS menjadi di bawah 5 detik.</span>
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors shadow-lg flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full mb-4 inline-block">Aplikasi (Custom Software)</span>
+                <h3 className="text-2xl font-bold text-white mb-3">Sistem ERP & POS Multi-Cabang Ritel</h3>
+                <p className="text-slate-400 text-sm mb-6 leading-relaxed">Klien dengan 12 cabang retail kesulitan memantau stok real-time dan rekap kas harian. Kami merancang web dashboard ERP & POS custom berbasis SaaS.</p>
+              </div>
+              <div className="border-t border-slate-800 pt-4 mt-auto">
+                <span className="text-cyan-400 font-bold text-sm">Hasil: Sinkronisasi stok 100% real-time dan menghemat waktu rekap manual hingga 4 jam per hari.</span>
               </div>
             </motion.div>
           </div>
