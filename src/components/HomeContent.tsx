@@ -32,6 +32,7 @@ const HomeContent = () => {
   };
 
   const [activeTab, setActiveTab] = useState('Landing Page');
+  const [certSlide, setCertSlide] = useState(0);
 
   const pricingCategories = [
     'Aplikasi',
@@ -685,78 +686,120 @@ const HomeContent = () => {
                 </motion.div>
               </motion.div>
             </div>
+
+            {/* Right Column (Image + Sliding Credentials Panel) */}
             <div className="lg:w-1/2 relative space-y-6">
-              <div className="absolute -inset-4 bg-cyan-500/10 rounded-2xl blur-3xl"></div>
-              
-              {/* Glassmorphism Credentials Panel */}
-              <div className="relative bg-slate-900/60 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/50 shadow-2xl">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-3 h-3 rounded-full bg-red-500 animate-pulse"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span className="text-xs text-slate-400 font-mono ml-auto">developer.identity</span>
+              {/* Previous Coding Setup Image */}
+              <div className="relative overflow-hidden rounded-2xl border border-slate-700/50 shadow-2xl">
+                <div className="absolute -inset-4 bg-cyan-500/20 rounded-2xl blur-2xl"></div>
+                <img
+                  loading="lazy"
+                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
+                  alt="Coding Setup"
+                  className="relative rounded-2xl w-full h-48 md:h-64 object-cover transform-gpu hover:scale-105 transition duration-500"
+                />
+              </div>
+
+              {/* Sliding Credentials Panel */}
+              <div className="relative bg-slate-900/60 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/50 shadow-2xl overflow-hidden min-h-[320px] flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="flex gap-1.5">
+                      <div className="w-3 h-3 rounded-full bg-red-500 animate-pulse"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <span className="text-xs text-slate-400 font-mono ml-auto">developer.identity</span>
+                  </div>
+
+                  {/* Slide Content */}
+                  {certSlide === 0 ? (
+                    <motion.div 
+                      key="slide0"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      className="space-y-4"
+                    >
+                      <div>
+                        <h3 className="text-white font-mono text-lg font-bold flex items-center gap-2">
+                          <span className="text-cyan-400">&gt;</span> Fauzan Aldi
+                        </h3>
+                        <p className="text-slate-400 text-xs mt-1">Informatics Student & Tech Professional</p>
+                      </div>
+
+                      {/* Roles */}
+                      <div className="flex flex-wrap gap-2 pt-2">
+                        {[
+                          "Security Researcher",
+                          "Software Engineer",
+                          "AI Engineer",
+                          "Bug Hunter",
+                          "CTF Player",
+                          "Backend Developer"
+                        ].map((role) => (
+                          <span key={role} className="px-2.5 py-1 text-xs rounded-full bg-slate-800 text-cyan-300 border border-cyan-500/20 font-medium">
+                            {role}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Hall of Fame / Special Achievements */}
+                      <div className="p-3 bg-cyan-950/40 border border-cyan-500/30 rounded-xl flex items-center gap-3">
+                        <Shield className="text-cyan-400 w-8 h-8 flex-shrink-0 animate-pulse" />
+                        <div>
+                          <h4 className="text-white text-xs font-bold font-mono">Hall of Fame (HOF)</h4>
+                          <p className="text-cyan-300 text-sm font-black tracking-wider">NASA Security Contributor</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ) : (
+                    <motion.div 
+                      key="slide1"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      className="space-y-4"
+                    >
+                      <h4 className="text-slate-400 text-xs font-mono font-bold uppercase tracking-wider">Professional Certifications</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div className="p-3 bg-slate-800/55 border border-slate-700/50 rounded-lg">
+                          <span className="text-slate-400 text-[10px] block font-mono font-bold mb-2">Security & PenTesting</span>
+                          <div className="flex flex-wrap gap-1.5">
+                            {["CPTS", "CRTA", "CAPEN", "C-AI/MLPEN", "CWEE", "CWSE", "CAPT"].map((cert) => (
+                              <span key={cert} className="text-[10px] px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-400/20 font-bold font-mono">
+                                {cert}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="p-3 bg-slate-800/55 border border-slate-700/50 rounded-lg">
+                          <span className="text-slate-400 text-[10px] block font-mono font-bold mb-2">Networking</span>
+                          <div className="flex flex-wrap gap-1.5">
+                            {["MTCNA", "MTCRE", "CCNA"].map((cert) => (
+                              <span key={cert} className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-400/20 font-bold font-mono">
+                                {cert}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
                 </div>
 
-                <div className="space-y-4">
-                  <div>
-                    <h3 className="text-white font-mono text-lg font-bold flex items-center gap-2">
-                      <span className="text-cyan-400">&gt;</span> Fauzan Aldi
-                    </h3>
-                    <p className="text-slate-400 text-xs mt-1">Informatics Student & Tech Professional</p>
-                  </div>
-
-                  {/* Roles */}
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {[
-                      "Security Researcher",
-                      "Software Engineer",
-                      "AI Engineer",
-                      "Bug Hunter",
-                      "CTF Player",
-                      "Backend Developer"
-                    ].map((role) => (
-                      <span key={role} className="px-2.5 py-1 text-xs rounded-full bg-slate-800 text-cyan-300 border border-cyan-500/20 font-medium">
-                        {role}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Hall of Fame / Special Achievements */}
-                  <div className="p-3 bg-cyan-950/40 border border-cyan-500/30 rounded-xl flex items-center gap-3">
-                    <Shield className="text-cyan-400 w-8 h-8 flex-shrink-0 animate-pulse" />
-                    <div>
-                      <h4 className="text-white text-xs font-bold font-mono">Hall of Fame (HOF)</h4>
-                      <p className="text-cyan-300 text-sm font-black tracking-wider">NASA Security Contributor</p>
-                    </div>
-                  </div>
-
-                  {/* Certifications Grid */}
-                  <div className="space-y-2 pt-2">
-                    <h4 className="text-slate-400 text-xs font-mono font-bold uppercase tracking-wider">Professional Certifications</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      <div className="p-3 bg-slate-800/50 border border-slate-700/50 rounded-lg">
-                        <span className="text-slate-400 text-[10px] block font-mono font-bold mb-2">Security & PenTesting</span>
-                        <div className="flex flex-wrap gap-1.5">
-                          {["CPTS", "CRTA", "CAPEN", "C-AI/MLPEN", "CWEE", "CWSE", "CAPT"].map((cert) => (
-                            <span key={cert} className="text-[10px] px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-400/20 font-bold font-mono">
-                              {cert}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      <div className="p-3 bg-slate-800/50 border border-slate-700/50 rounded-lg">
-                        <span className="text-slate-400 text-[10px] block font-mono font-bold mb-2">Networking</span>
-                        <div className="flex flex-wrap gap-1.5">
-                          {["MTCNA", "MTCRE", "CCNA"].map((cert) => (
-                            <span key={cert} className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-400/20 font-bold font-mono">
-                              {cert}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
+                {/* Slider Controls / Dots */}
+                <div className="flex justify-center items-center gap-2 mt-6 pt-4 border-t border-slate-800">
+                  <button 
+                    onClick={() => setCertSlide(0)} 
+                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${certSlide === 0 ? 'bg-cyan-400 w-6' : 'bg-slate-700 hover:bg-slate-500'}`}
+                    aria-label="Slide 1"
+                  />
+                  <button 
+                    onClick={() => setCertSlide(1)} 
+                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${certSlide === 1 ? 'bg-cyan-400 w-6' : 'bg-slate-700 hover:bg-slate-500'}`}
+                    aria-label="Slide 2"
+                  />
                 </div>
               </div>
             </div>
