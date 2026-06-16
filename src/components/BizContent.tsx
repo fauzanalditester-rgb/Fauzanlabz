@@ -220,14 +220,14 @@ const BizContent = () => {
             {/* Projects Data */}
             {(() => {
               const projects = [
-                { title: "Landing Page Sekolah", img: "/images/landingpagesekolah12.png", cat: "Web Company Profile" },
-                { title: "Website Toko Online", img: "/images/websitetokoonline1.png", cat: "Toko Online" },
-                { title: "Website UMKM", img: "/images/umkmwebsite1.png", cat: "Web UMKM" },
-                { title: "Landing Page Travel", img: "/images/Landingpagetravel.png", cat: "Web Travel" },
-                { title: "Toko Online + Payment", img: "/images/tokoonline2.png", cat: "Toko Online" },
-                { title: "Landing Page Produk", img: "/images/landingpageproduk1.png", cat: "Landing Page" },
-                { title: "Landing Page Jasa", img: "/images/landingpagejasa1.png", cat: "Landing Page" },
-                { title: "Website Interior", img: "/images/interior1.png", cat: "Company Profile" }
+                { title: "Landing Page Sekolah", img: "/images/landingpagesekolah12.webp", cat: "Web Company Profile" },
+                { title: "Website Toko Online", img: "/images/websitetokoonline1.webp", cat: "Toko Online" },
+                { title: "Website UMKM", img: "/images/umkmwebsite1.webp", cat: "Web UMKM" },
+                { title: "Landing Page Travel", img: "/images/Landingpagetravel.webp", cat: "Web Travel" },
+                { title: "Toko Online + Payment", img: "/images/tokoonline2.webp", cat: "Toko Online" },
+                { title: "Landing Page Produk", img: "/images/landingpageproduk1.webp", cat: "Landing Page" },
+                { title: "Landing Page Jasa", img: "/images/landingpagejasa1.webp", cat: "Landing Page" },
+                { title: "Website Interior", img: "/images/interior1.webp", cat: "Company Profile" }
               ];
 
               const maxIndex = Math.max(0, projects.length - itemsPerView);
@@ -314,7 +314,7 @@ const BizContent = () => {
               <div className="relative rounded-2xl overflow-hidden border border-slate-800 shadow-[0_0_50px_rgba(0,0,0,0.5)] aspect-[5/4]">
                 <div className="absolute inset-0 bg-slate-950/20 z-10"></div>
                 <img
-                  src="/images/foto11.png"
+                  src="/images/foto11.webp"
                   alt="Stressed Business Owner"
                   className="w-full h-full object-cover scale-125"
                 />
@@ -420,7 +420,7 @@ const BizContent = () => {
               <div className="relative rounded-2xl overflow-hidden border border-slate-800 shadow-[0_0_50px_rgba(6,182,212,0.15)] group aspect-[5/4]">
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60 z-10"></div>
                 <img
-                  src="/images/foto12.png"
+                  src="/images/foto12.webp"
                   alt="Professional Web Developer"
                   className="w-full h-full object-cover"
                 />
