@@ -594,7 +594,9 @@ const PricingPage = () => {
     { title: "Website Toko Online", image: "https://fauzanlabz.my.id/wp-content/uploads/2025/08/Website-Toko-Online-scaled.webp", category: "E-Commerce" },
     { title: "Toko Online + Payment Gateway", image: "/images/tokoonline2.png", category: "E-Commerce" },
     { title: "Security Analytics Dashboard", image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070", category: "Cybersecurity" },
-    { title: "Cloud Architecture Diagram", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2072", category: "IT Consultancy" }
+    { title: "Cloud Architecture Diagram", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2072", category: "IT Consultancy" },
+    { title: "AI Chatbot WhatsApp Integration", image: "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&q=80&w=2070", category: "AI Automation" },
+    { title: "SaaS Multi-Tenant POS System", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2015", category: "Aplikasi" }
   ];
 
   const advantages = [
