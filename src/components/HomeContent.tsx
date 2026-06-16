@@ -680,7 +680,7 @@ const HomeContent = () => {
 
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">Tentang <span className="text-cyan-400">FauzanLabz</span> </h2>
                 <p className="text-slate-300 text-sm mb-6 leading-relaxed">
-                  <strong className="text-white">FauzanLabz</strong> adalah layanan <em className="text-cyan-400 not-italic">jasa pembuatan aplikasi custom</em> yang dikelola oleh saya, Fauzan Aldi seorang developer yang fokus membantu UMKM dan bisnis lokal membangun sistem digital yang rapi, cepat, dan siap dipakai operasional.
+                  <strong className="text-white">FauzanLabz</strong> adalah penyedia <em className="text-cyan-400 not-italic">solusi Cybersecurity, AI & Enterprise IT</em> yang dikelola oleh saya, Fauzan Aldi, seorang security researcher & developer yang fokus membantu bisnis dan instansi membangun infrastruktur digital yang aman, cerdas, dan tangguh.
                 </p>
                 <p className="text-slate-300 text-sm mb-8 leading-relaxed">
                   Mulai dari aplikasi mobile, web app dashboard, sampai sistem kasir (POS), saya siap bantu kamu punya aplikasi yang:

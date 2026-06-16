@@ -32,7 +32,7 @@ const Navbar = () => {
               onClick={() => goTo('/')}
               className={`font-medium text-sm leading-relaxed transition-colors ${location.pathname === '/' ? 'text-cyan-400 font-bold' : 'text-slate-300 hover:text-cyan-400'}`}
             >
-              Jasa Pembuatan Aplikasi Custom
+              Cybersecurity, AI & Enterprise IT Solutions
             </button>
             <button
               onClick={() => goTo('/bantu-bisnis')}
