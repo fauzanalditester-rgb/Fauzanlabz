@@ -798,9 +798,6 @@ const HomeContent = () => {
           </div>
         </div>
       </section>
-          </div>
-        </div>
-      </section>
 
 
 
