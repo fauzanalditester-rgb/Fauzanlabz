@@ -687,132 +687,117 @@ const HomeContent = () => {
               </motion.div>
             </div>
 
-            {/* Right Column (Image + Sliding Credentials Panel) */}
+            {/* Right Column (Coding Setup Image Only) */}
             <div className="lg:w-1/2 relative">
-              <div className="absolute -inset-4 bg-cyan-500/10 rounded-2xl blur-3xl"></div>
-              
-              {/* Unified 3-Slide Carousel Card */}
-              <div className="relative bg-slate-900/60 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/50 shadow-2xl overflow-hidden min-h-[380px] flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="flex gap-1.5">
-                      <div className="w-3 h-3 rounded-full bg-red-500 animate-pulse"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                    </div>
-                    <span className="text-xs text-slate-400 font-mono ml-auto">
-                      {certSlide === 0 ? "developer.workspace" : certSlide === 1 ? "developer.identity" : "developer.credentials"}
+              <div className="absolute -inset-4 bg-cyan-500/20 rounded-2xl blur-2xl"></div>
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
+                alt="Coding Setup"
+                className="relative rounded-2xl shadow-2xl border border-slate-700/50 transform-gpu hover:scale-[1.02] transition duration-550"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* New Feature: Kredibilitas & Sertifikasi Section */}
+      <section className="py-24 bg-slate-950 border-t border-slate-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#080f1e_1px,transparent_1px),linear-gradient(to_bottom,#080f1e_1px,transparent_1px)] bg-[size:30px_30px]"></div>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <span className="text-cyan-400 font-mono text-xs uppercase tracking-[0.2em] mb-3 block">PROVEN CREDENTIALS</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Kredibilitas & <span className="text-cyan-400">Sertifikasi</span>
+            </h2>
+            <p className="text-slate-400 max-w-2xl mx-auto text-base">
+              Didukung oleh sertifikasi industri internasional terkemuka di bidang Cybersecurity, Networking, dan Rekayasa Perangkat Lunak.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            {/* Professional Identity Card */}
+            <div className="bg-slate-900/40 backdrop-blur-md border border-slate-800/80 p-8 rounded-2xl flex flex-col justify-between hover:border-cyan-500/30 transition duration-300">
+              <div>
+                <span className="text-xs font-mono text-cyan-400 block mb-3">// IDENTITY & ROLES</span>
+                <h3 className="text-white text-xl font-bold font-mono mb-4">Fauzan Aldi</h3>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Security Researcher",
+                    "Software Engineer",
+                    "AI Engineer",
+                    "Bug Hunter",
+                    "CTF Player",
+                    "Backend Developer",
+                    "Informatics Student"
+                  ].map((role) => (
+                    <span key={role} className="text-xs px-3 py-1 rounded-full bg-slate-800/80 text-cyan-300 border border-cyan-500/10 font-medium">
+                      {role}
                     </span>
-                  </div>
-
-                  {/* Slide Content */}
-                  {certSlide === 0 && (
-                    <motion.div 
-                      key="slide0"
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      className="space-y-4"
-                    >
-                      <div className="relative overflow-hidden rounded-xl border border-slate-700/50 shadow-lg">
-                        <img
-                          loading="lazy"
-                          src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
-                          alt="Coding Setup"
-                          className="w-full h-48 md:h-56 object-cover transform-gpu hover:scale-105 transition duration-500"
-                        />
-                      </div>
-                      <p className="text-xs text-slate-400 font-mono text-center">Fauzan Aldi's Development Environment</p>
-                    </motion.div>
-                  )}
-
-                  {certSlide === 1 && (
-                    <motion.div 
-                      key="slide1"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      className="space-y-4"
-                    >
-                      <div>
-                        <h3 className="text-white font-mono text-lg font-bold flex items-center gap-2">
-                          <span className="text-cyan-400">&gt;</span> Fauzan Aldi
-                        </h3>
-                        <p className="text-slate-400 text-xs mt-1">Informatics Student & Tech Professional</p>
-                      </div>
-
-                      {/* Roles */}
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {[
-                          "Security Researcher",
-                          "Software Engineer",
-                          "AI Engineer",
-                          "Bug Hunter",
-                          "CTF Player",
-                          "Backend Developer"
-                        ].map((role) => (
-                          <span key={role} className="px-2.5 py-1 text-xs rounded-full bg-slate-800 text-cyan-300 border border-cyan-500/20 font-medium">
-                            {role}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Hall of Fame */}
-                      <div className="p-3 bg-cyan-950/40 border border-cyan-500/30 rounded-xl flex items-center gap-3">
-                        <Shield className="text-cyan-400 w-8 h-8 flex-shrink-0 animate-pulse" />
-                        <div>
-                          <h4 className="text-white text-xs font-bold font-mono">Hall of Fame (HOF)</h4>
-                          <p className="text-cyan-300 text-sm font-black tracking-wider">NASA Security Contributor</p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {certSlide === 2 && (
-                    <motion.div 
-                      key="slide2"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      className="space-y-4"
-                    >
-                      <h4 className="text-slate-400 text-xs font-mono font-bold uppercase tracking-wider">Professional Certifications</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <div className="p-3 bg-slate-800/55 border border-slate-700/50 rounded-lg">
-                          <span className="text-slate-400 text-[10px] block font-mono font-bold mb-2">Security & PenTesting</span>
-                          <div className="flex flex-wrap gap-1.5">
-                            {["CPTS", "CRTA", "CAPEN", "C-AI/MLPEN", "CWEE", "CWSE", "CAPT"].map((cert) => (
-                              <span key={cert} className="text-[10px] px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-400/20 font-bold font-mono">
-                                {cert}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                        <div className="p-3 bg-slate-800/55 border border-slate-700/50 rounded-lg">
-                          <span className="text-slate-400 text-[10px] block font-mono font-bold mb-2">Networking</span>
-                          <div className="flex flex-wrap gap-1.5">
-                            {["MTCNA", "MTCRE", "CCNA"].map((cert) => (
-                              <span key={cert} className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-400/20 font-bold font-mono">
-                                {cert}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </div>
-
-                {/* Slider Controls / Dots */}
-                <div className="flex justify-center items-center gap-2 mt-6 pt-4 border-t border-slate-800">
-                  {[0, 1, 2].map((slideIdx) => (
-                    <button 
-                      key={slideIdx}
-                      onClick={() => setCertSlide(slideIdx)} 
-                      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${certSlide === slideIdx ? 'bg-cyan-400 w-6' : 'bg-slate-700 hover:bg-slate-500'}`}
-                      aria-label={`Slide ${slideIdx + 1}`}
-                    />
                   ))}
                 </div>
               </div>
+              <div className="mt-8 p-4 bg-cyan-950/20 border border-cyan-500/20 rounded-xl flex items-center gap-4">
+                <Shield className="text-cyan-400 w-10 h-10 animate-pulse flex-shrink-0" />
+                <div>
+                  <h4 className="text-white text-xs font-bold font-mono uppercase">Hall of Fame (HOF)</h4>
+                  <p className="text-cyan-300 text-sm font-black tracking-wider">NASA Security Contributor</p>
+                </div>
+              </div>
             </div>
+
+            {/* Offensive/Defensive Security Certifications Card */}
+            <div className="bg-slate-900/40 backdrop-blur-md border border-slate-800/80 p-8 rounded-2xl hover:border-cyan-500/30 transition duration-300">
+              <span className="text-xs font-mono text-cyan-400 block mb-3">// CYBERSECURITY EXCELLENCE</span>
+              <h3 className="text-white text-lg font-bold font-mono mb-4">Offensive & Defensive Security</h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { name: "CPTS", desc: "Certified PenTesting Specialist" },
+                  { name: "CRTA", desc: "Certified Red Team Analyst" },
+                  { name: "CAPEN", desc: "Advanced PenTesting Practitioner" },
+                  { name: "C-AI/MLPEN", desc: "AI/ML Penetration Tester" },
+                  { name: "CWEE", desc: "Web Exploitation Expert" },
+                  { name: "CWSE", desc: "Web Security Engineer" },
+                  { name: "CAPT", desc: "Advanced PenTester" }
+                ].map((cert) => (
+                  <div key={cert.name} className="p-3 bg-slate-950/60 rounded-lg border border-slate-800/80 hover:border-cyan-400/30 transition duration-300">
+                    <span className="text-xs font-mono font-bold text-cyan-400 block">{cert.name}</span>
+                    <span className="text-[10px] text-slate-500 block leading-tight mt-0.5">{cert.desc}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Infrastructure & Network Certifications Card */}
+            <div className="bg-slate-900/40 backdrop-blur-md border border-slate-800/80 p-8 rounded-2xl flex flex-col justify-between hover:border-emerald-500/30 transition duration-300">
+              <div>
+                <span className="text-xs font-mono text-emerald-400 block mb-3">// NETWORKING & SYSTEMS</span>
+                <h3 className="text-white text-lg font-bold font-mono mb-4">Enterprise Infrastructure</h3>
+                <div className="space-y-3">
+                  {[
+                    { name: "CCNA", desc: "Cisco Certified Network Associate", vendor: "Cisco Systems" },
+                    { name: "MTCNA", desc: "MikroTik Certified Network Associate", vendor: "MikroTik" },
+                    { name: "MTCRE", desc: "MikroTik Certified Routing Engineer", vendor: "MikroTik" }
+                  ].map((cert) => (
+                    <div key={cert.name} className="p-3 bg-slate-950/60 rounded-xl border border-slate-850 flex items-center justify-between hover:border-emerald-500/20 transition duration-300">
+                      <div>
+                        <span className="text-sm font-mono font-bold text-emerald-400">{cert.name}</span>
+                        <p className="text-xs text-slate-400 mt-0.5">{cert.desc}</p>
+                      </div>
+                      <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-bold uppercase font-mono">
+                        {cert.vendor}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <p className="text-[10px] text-slate-500 font-mono mt-6 border-t border-slate-800/50 pt-4">
+                * Kredensial di atas memvalidasi kemampuan kami dalam merancang infrastruktur digital yang aman, cepat, dan tangguh terhadap ancaman siber.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
           </div>
         </div>
       </section>
