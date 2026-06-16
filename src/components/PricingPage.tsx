@@ -6,7 +6,6 @@ const PricingPage = () => {
   const [activeTab, setActiveTab] = useState('Landing Page');
 
   const tabs = [
-    'Website',
     'Aplikasi',
     'AI Automation',
     'Landing Page',
@@ -97,51 +96,6 @@ const PricingPage = () => {
   }
 
   const pricingData: { [key: string]: PricingPackage[] } = {
-    'Website': [
-      {
-        name: 'Starter Web',
-        price: 'Rp 1.500.000',
-        description: 'Landing page simpel untuk bisnis baru yang ingin tampil online.',
-        features: [
-          'Free Domain (.com)',
-          'Shared Hosting (6 Bulan)',
-          '1 Halaman (Scroll Panjang)',
-          'Desain Mobile Friendly',
-          'Tombol WhatsApp',
-          '1x Revisi'
-        ],
-        notes: 'Landing page simpel untuk bisnis baru yang ingin tampil online.'
-      },
-      {
-        name: 'Company Profile',
-        price: 'Rp 3.500.000',
-        description: 'Website company profile multi-halaman untuk kredibilitas bisnis.',
-        features: [
-          'Free Domain (.com) & Hosting 1 Tahun',
-          'Hingga 10 Halaman',
-          'Galeri & Portofolio',
-          'Fitur Blog / Berita',
-          'Email Bisnis Professional',
-          'SEO Basic'
-        ],
-        notes: 'Website company profile multi-halaman untuk kredibilitas bisnis.',
-        isPopular: true
-      },
-      {
-        name: 'E-Commerce',
-        price: 'Rp 6.500.000',
-        description: 'Toko online lengkap dengan payment gateway & ongkir otomatis.',
-        features: [
-          'Unlimited Produk',
-          'Sistem Keranjang Belanja',
-          'Payment Gateway (OVO, Dana, VA)',
-          'Integrasi Ongkir (RajaOngkir)',
-          'Laporan Penjualan',
-          'Maintenance 2 Bulan'
-        ],
-        notes: 'Toko online lengkap dengan payment gateway & ongkir otomatis.'
-      }
-    ],
     'Aplikasi': [
       {
         name: 'Web Dashboard',
