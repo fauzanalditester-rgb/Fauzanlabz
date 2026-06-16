@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Code, CheckCircle, Zap, Shield, Layout, ClipboardCheck, ArrowRight, ShieldAlert, Network } from 'lucide-react';
+import { Code, CheckCircle, Zap, Shield, Layout, ClipboardCheck, ArrowRight, ShieldAlert, Network, Github } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const HomeContent = () => {
@@ -735,6 +735,18 @@ const HomeContent = () => {
                       {role}
                     </span>
                   ))}
+                </div>
+
+                {/* GitHub Link */}
+                <div className="mt-6">
+                  <a 
+                    href="https://github.com/Fauzan-Aldi" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 text-xs font-mono rounded-lg bg-slate-850 hover:bg-slate-800 text-slate-300 hover:text-cyan-400 border border-slate-800 hover:border-cyan-500/30 transition duration-300"
+                  >
+                    <Github size={14} /> github.com/Fauzan-Aldi
+                  </a>
                 </div>
               </div>
               <div className="mt-8 p-4 bg-cyan-950/20 border border-cyan-500/20 rounded-xl flex items-center gap-4">
