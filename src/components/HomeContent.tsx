@@ -1205,6 +1205,39 @@ const HomeContent = () => {
                 <span className="text-cyan-400 font-bold text-sm">Hasil: Kecepatan load naik 300% & bounce rate turun ke 18%, penjualan naik 35%.</span>
               </div>
             </motion.div>
+
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors shadow-lg flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full mb-4 inline-block">Network Security</span>
+                <h3 className="text-xl font-bold text-white mb-3">Zero Trust & SD-WAN Multi-Office</h3>
+                <p className="text-slate-400 text-sm mb-6 leading-relaxed">Perusahaan perkebunan kelapa sawit dengan 20 kantor cabang regional membutuhkan koneksi aman ke kantor pusat tanpa VPN tradisional yang lambat. Kami merancang arsitektur Zero Trust Network Access (ZTNA) dan SD-WAN.</p>
+              </div>
+              <div className="border-t border-slate-800 pt-4 mt-auto">
+                <span className="text-cyan-400 font-bold text-sm">Hasil: Keamanan data meningkat 100% dan latency komunikasi antar cabang terpangkas hingga 50%.</span>
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors shadow-lg flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full mb-4 inline-block">Aplikasi (LMS)</span>
+                <h3 className="text-xl font-bold text-white mb-3">Platform E-Learning & Ujian Online</h3>
+                <p className="text-slate-400 text-sm mb-6 leading-relaxed">Lembaga bimbingan belajar dengan 50.000+ siswa aktif mengalami crash server saat ujian tryout serentak. Kami membangun ulang sistem LMS berbasis Serverless Architecture & CDN caching global.</p>
+              </div>
+              <div className="border-t border-slate-800 pt-4 mt-auto">
+                <span className="text-cyan-400 font-bold text-sm">Hasil: Ujian tryout berjalan lancar dengan response time kurang dari 200ms & nol downtime server.</span>
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors shadow-lg flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full mb-4 inline-block">AI Automation / Legal</span>
+                <h3 className="text-xl font-bold text-white mb-3">AI Document Parser & Auditing</h3>
+                <p className="text-slate-400 text-sm mb-6 leading-relaxed">Firma hukum & investasi menghabiskan ratusan jam kerja untuk membaca kontrak kerjasama panjang. Kami mengembangkan sistem AI parser khusus untuk mendeteksi klausul berisiko dan membandingkannya dengan regulasi terbaru.</p>
+              </div>
+              <div className="border-t border-slate-800 pt-4 mt-auto">
+                <span className="text-cyan-400 font-bold text-sm">Hasil: Waktu review kontrak berkurang 80% dan deteksi dini risiko hukum naik hingga 95%.</span>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
